@@ -1,10 +1,8 @@
 $(document).ready(function(){
     
-/*
     $(this).bind("contextmenu", function(e) {
         e.preventDefault();
     });
-*/
     
     var itemImages = $( '.sveipa-beholder, .komagerband, .grindvev, .boks, .finsk-bibel, .komager, .lille-katekismen, .benkekarde, .tobakkspung, .tjaere-kopp, .bortre, .lagga-beholder, .det-nye-testamentet' );
     
@@ -14,7 +12,7 @@ $(document).ready(function(){
     
     var objectTexts = $( '.sveipa-beholder-text, .komagerband-text, .grindvev-text, .boks-text, .finsk-bibel-text, .komager-text, .lille-katekismen-text, .benkekarde-text, .tobakkspung-text, .tjaere-kopp-text, .bortre-text, .lagga-beholder-text, .det-nye-testamentet-text' );    
     
-    //Vis og skjul spr�k  
+    //Vis og skjul språk  
 
     $( languages ).hide();
 	
@@ -114,77 +112,19 @@ $(document).ready(function(){
         $('#items').removeClass("blue-bg");
     }
     
+    // Lukk gjenstand hvis man trykker på 'hjem' ikon:
+    
     $('#home-icon').click(reset);
       
-    // Tekster til gjenstandene
-
-    $('.sveipa-beholder').click(function(){
-		$( objectTexts ).hide();
-		$('.sveipa-beholder-text').fadeIn('slow');
-	});
-	
-	$('.komagerband').click(function(){
-		$( objectTexts ).hide();
-		$('.komagerband-text').fadeIn('slow');
-	});
-    
-    $('.grindvev').click(function(){
-		$( objectTexts ).hide();
-		$('.komagerband-text').fadeIn('slow');
-	});
-	
-	$('.boks').click(function(){
-		$( objectTexts ).hide();
-		$('.boks-text').fadeIn('slow');
-	});
-	
-	$('.finsk-bibel').click(function(){
-		$( objectTexts ).hide();
-		$('.finsk-bibel-text').fadeIn('slow');
-	});
-	
-	$('.komager').click(function(){
-		$( objectTexts ).hide();
-		$('.komager-text').fadeIn('slow');
-	});
-	
-	$('.lille-katekismen').click(function(){
-		$( objectTexts ).hide();
-		$('.lille-katekismen-text').fadeIn('slow');
-	});
-	
-	$('.benkekarde').click(function(){
-		$( objectTexts ).hide();
-		$('.benkekarde-text').fadeIn('slow');
-	});
-	
-	$('.tobakkspung').click(function(){
-		$( objectTexts ).hide();
-		$('.tobakkspung-text').fadeIn('slow');
-	});
-	
-	$('.tjaere-kopp').click(function(){
-		$( objectTexts ).hide();
-		$('.tjaere-kopp-text').fadeIn('slow');
-	});
-	
-	$('.bortre').click(function(){
-		$( objectTexts ).hide();
-		$('.bortre-text').fadeIn('slow');
-	});
-	
-	$('.lagga-beholder').click(function(){
-		$( objectTexts ).hide();
-		$('.lagga-beholder-text').fadeIn('slow');
-	});
-
-    $('.det-nye-testamentet').click(function(){
-		$( objectTexts ).hide();
-		$('.det-nye-testamentet-text').fadeIn('slow');
-	});
-
-      
-    // Ikoneer - historiske bilder
+    // Tekster til gjenstandene:
+  
+    itemImages.click(function(){
+          objectTexts.hide();
+          var currentClass = $.trim($(this).attr('class').replace('moved', ''));
+          $('.'+currentClass+'-text').fadeIn('fast');
+     });  
+       
+    // Ikoner - historiske bilder
 	
 	$('.big-image').click(function(){
     	$(this).hide();
@@ -201,14 +141,15 @@ $(document).ready(function(){
     	$('.info').removeClass('slide-out');
 	});
 	
-	var infoSections = $('#history, #front');
-	
-$.idleTimer(120000);
+    // Reload siden hvis ingen bruker den
+    	
+    $.idleTimer(120000);
     
 
-    $(document).bind("idle.idleTimer", function(){
-        location.reload();
+    $(document).bind("idle.idleTimer", function() {
+        if ($('#items').is(':visible') || $('#history').is(':visible')) {
+            location.reload();
+        }    
     });
-
       
 });
