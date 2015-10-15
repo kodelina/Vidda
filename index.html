@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Kjøkken</title>
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/kjokken.css">
+    <script type="text/javascript">
+       (function() {
+        	window.onload = function() {
+        		var front = document.getElementById("front");
+        		var history = document.getElementById("history");
+        		var items = document.getElementById("items");
+        		var languagemenu = document.getElementById("menu");
+        		var homescreen = document.getElementById("home-icon");
+/*
+        		var norsk = document.getElementsByClassName("lang-no");
+        		var engelsk = document.getElementsByClassName("lang-en");
+        		var kvensk = document.getElementsByClassName("lang-kv");
+        		var samisk = document.getElementsByClassName("lang-sa");
+*/
+        		
+        		document.getElementById("menu").style.visibility = "hidden";
+        
+        		var frontChoices = front.querySelectorAll(".front-choice");
+        
+        		for (var i = frontChoices.length - 1; i >= 0; i--) {
+        			frontChoices[i].addEventListener("click", function(e) {
+        				console.log(e);
+        				front.style.display = "none";
+        				history.style.display = "block";
+        				languagemenu.style.visibility = "visible";
+        			});
+        		}
+                
+        		var backFromHistory = history.querySelector('.back');
+        		var goToItems = history.querySelector('.next');
+        		var backToHistory = items.querySelector('.back');
+        
+        		backFromHistory.addEventListener("click", function(e) {
+        			console.log(e);
+        			history.style.display = "none";
+        			items.style.display = "none";
+        			front.style.display = "block";
+        			languagemenu.style.visibility = "hidden";
+        		});
+        		goToItems.addEventListener("click", function(e) {
+        			console.log(e);
+        			history.style.display = "none";
+        			front.style.display = "none";
+        			items.style.display = "block";
+        			languagemenu.style.visibility = "visible";
+        		});
+        		backToHistory.addEventListener("click", function(e) {
+        			console.log(e);
+        			items.style.display = "none";
+        			front.style.display = "none";
+        			history.style.display = "block";
+        			languagemenu.style.visibility = "visible";
+        		});
+        		homescreen.addEventListener("click", function(e) {
+        			console.log(e);
+        			history.style.display = "none";
+        			items.style.display = "none";
+        			front.style.display = "block";
+        			languagemenu.style.visibility = "hidden";
+        		});
+
+        	};
+        })();
+    </script>
+    <script src="js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/kjokken.js" type="text/javascript" charset="utf-8" async></script>
+    <script src="js/idle-timer.js" type="text/javascript" charset="utf-8"></script>
+<!--     <script src="js/pixelselect.min.js" type="text/javascript" charset="utf-8"></script> -->
+  </head>
+  <body>
+    <ul id="menu">
+        <li><a id="home-icon" href="#front"></a></li>
+        <li><a id="lang-no"></a></li>
+        <li><a id="lang-en"></a></li>
+        <li><a id="lang-sa"></a></li>
+        <li><a id="lang-kv"></a></li>
+    </ul>
+    <section id="front" class="fullscreen">
+      <ul class="front">
+        <li class="front-choice kvensk">Köökki</li>
+        <li class="front-choice norsk">Kjøkkenet</li>
+        <li class="front-choice samisk">Gievkkan</li>
+        <li class="front-choice engelsk">The kitchen</li>
+      </ul>
+    </section>
+    <section id="history" class="fullscreen">
+        <div class="history-text lang-no">
+            <h1>Kjøkkenet</h1>
+            <p>Kjøkkenet fungerte både som et sosialt rom og et arbeidsrom, og var ofte det eneste rommet i huset som ble oppvarmet. Familie, naboer og venner kom og gikk, man reparerte fiskegarn og klær, sydde og gjorde annet håndverk. Særlig på mørke vinterdager ble tiden benyttet til alt man ikke rakk å gjøre om sommeren.</p>
+        </div>
+        <div class="history-text lang-en">
+            <h1>Kitchen</h1>
+            <p>The kitchen acted as the place where the family both worked and relaxed. It was often the only room in the house to be heated. The family, neighbours and friends came and went, people made and mended fishing nets and clothes, and engaged in a variety of other handicrafts. The dark winter days in particular were spent on all the things people did not have time for during the summer.</p>
+        </div>
+        <div class="history-text lang-kv">
+            <h1>Köökki</h1>
+            <p>Köökissä tehthiin työtä ja sielä ihmiset kokkoonuthiin muutoinki. Usheen se oli huonheen ainua loma, jota lämmitethiin. Peret, krannit ja ystävät tulthiin ja menthiin, sielä paikathiin vaattheita ja kalaverkkoi, neulothiin ja tehthiin muuta käsityötä.Talven pimmeinä päivinä tehthiin kaiken sen, mitä ei oltu ennätetty tehhä kesälä.</p>
+        </div>
+        <div class="history-text lang-sa">
+            <h1>Gievkkan</h1>
+            <p>Gievkkan lei viesu čoaggananlatnja, doppe sihke barge ja dušše humade. Dávjá doalahedje dušše dan lanja viesus liekkasin. Fuolkkit, ránját ja olbmát jorre olggos sisa. Doppe čikte firbmiid ja duokŋade biktasiid, gorro ja duddjoje. Erenoamážit skábman barge daid bargguid maid eai ollen geasis.</p>
+        </div>
+      <div class="back to-front"  data-position="left"></div>
+      <div class="next"></div>
+    </section>
+    <section id="items" class="fullscreen">
+        <div class="close"></div>
+        <div class="big-image"></div>
+        <div class="small-image"></div>
+
+        <div class="sveipa-beholder"><img src="items/sveipa-beholder.png"></div>
+        <div class="komagerband"><img src="items/komagerband.png"></div>
+        <div class="grindvev"><img src="items/grindvev.png"></div>
+        <div class="boks"><img src="items/boks.png"></div>
+        <div class="finsk-bibel"><img src="items/finsk-bibel.png"></div>
+        <div class="komager"><img src="items/komager.png"></div>
+        <div class="lille-katekismen"><img src="items/lille-katekismen.png"></div>
+        <div class="benkekarde"><img src="items/benkekarde.png"></div>
+        <div class="tobakkspung"><img src="items/tobakkspung.png"></div>
+        <div class="tjaere-kopp"><img src="items/tjaere-kopp.png"></div>
+        <div class="bortre"><img src="items/bortre.png"></div>
+        <div class="lagga-beholder"><img src="items/lagga-beholder.png"></div>
+        <div class="det-nye-testamentet"><img src="items/det-nye-testamentet.png"></div>
+        
+        <aside class="info">
+            <div class="object-text lang-no">
+                <div class="benkekarde-text">
+                    <h1>Benkekarde</h1>
+                    <p>Produksjon av egne tekstiler var en viktig del av selvbergingssamfunnet. Kvinnene strikket, vevde og sydde de fleste tekstiler og klær det var behov for på gården.
+                    Prosessen fra ull til garn var lang. Etter klipping av sauene, skulle ulla kjemmes. Dette kalles å karde. Karding renser ulla og gjør den jevn slik at garnet blir slitesterkt. Benkekardene ble brukt til karding og til å blande sammen forskjellige typer ull. Etter at ulla var kardet, ble den lagt sammen til en rull og gjort klar til å spinnes til garn på rokken.</p> 
+                    <p>Familiene var ofte tallrike, så det var et omfattende arbeid å holde alle med votter, lester, gensere og underskjørt. Behovet for garn var derfor stort, og kvinnene i Nord-Troms hadde «alltid» et strikketøy mellom hendene.</p>
+                    <span>Denne benkekarden er fra Reisadalen, og siste eier var sannsynligvis Helge Hallen (f. 1928).</span>
+                </div>
+                <div class="tjaere-kopp-text">
+                    <h1>Tjærekopp</h1>
+                    <p>Fremstilling av tjære var en kunst kvenene brakte med seg til Nord-Troms. Tjæreproduksjon kunne gi en kjærkommen biinntekt, og tjæra hadde en viktig plass i folks hverdagsliv på grunn av evnen til å bevare gjenstander av lær, tre og tekstiler.</p> 
+                    <p>Tjæras evne til å beskytte og bevare ble også overført til folkemedisinen og folketroen. Tjæredamp fra en kopp som sto på ovnen ble ansett som et godt middel mot smitte. Sår og skader på mennesker og dyr ble behandlet med tjæreomslag, og man smurte gjerne tjære på brystkassen til en med forkjølelse. Tjærekors over døren eller båsen holdt sykdom og onde makter borte fra fjøs og stall.</p> 
+                </div>
+                <div class="sveipa-beholder-text">
+                    <h1>Sveipa beholdere</h1>
+                    <p>Det ble brukt flere typer beholdere til tilberedning, servering og lagring av mat og oppbevaring av diverse husgeråd. Disse ble tilvirket ved hjelp av ulike håndverksteknikker.</p>
+                    <p>Sveiping ble ofte benyttet for å lage runde eller ovale beholdere, for eksempel kaketiner, matbokser og smørbokser. Et tynt stykke tre ble bøyd i riktig form og endene sydd sammen av tynne røtter – tæger.</p>
+                    <p>Dekorteknikkene kunne være maling, svidekor og/eller treskjæring, og motivet gjerne geometriske mønstre. Et annet mye benyttet motiv var korset, som skulle verne maten mot onde makter.</p>
+                    <p>Form for ost og/eller smør med en dyp korsform skåret ut i bunnen. Formen er sydd sammen med tæger. Eier har vært Josefine Gamslett fra Svensby. Under osteformen står det skrevet med blyant: «Min mor Josefine Gamslett».</p>
+                </div>
+                <div class="lagga-beholder-text">
+                    <h1>Lagga beholdere</h1> 
+                    <p>Lagging er en teknikk som ble brukt til å lage bøtter, baljer, stamper og kar av brede trestaver. Disse beholderne ble benyttet til vann, melkeprodukter og det man hadde behov for å oppbevare i flytende form. I Nord-Troms produserte de aller fleste disse beholderne selv. Både teknikk og verktøy er like de man brukte for å lage tønner. Forskjellen er at de lagga beholderne er åpne og har rette staver, mens tønnene har bunn i begge ender og buede staver.</p> 
+                    <p>Lagget beholder med lokk. Årstallet «1848» er risset inn under bunnen. Dallen har rester av blå maling, noe som var en eksklusiv vare på 1800-tallet. Tidligere eier og brukssted er ukjent. Dallen tilhører Gamslettsamlingen. Alf Gamslett samlet inn gjenstander fra Lyngen i perioden 1930–1975.</p>
+                </div> 
+                <div class="boks-text">
+                    <h1>Boks</h1> 
+                    <p>Liten sveipet boks (øskje) satt sammen av bein og kobbernagler. Årstallet «1841» er risset inn på undersiden av boksen. Innvendig i lokket er initialene «L.P.» risset inn, og under boksen er «Didrik Larsen, Nordkjoselv» skrevet med penn. Boksen tilhører Gamslettsamlingen, og Didrik Larsen er sannsynligvis den som har gitt boksen til Alf Gamslett. Gamslett samlet inn gjenstander fra Lyngen i perioden 1930–1975.</p>
+                </div>
+                <div class="bortre-text">
+                    <h1>Børtre</h1>
+                    <p>De fleste i Nord-Troms fikk innlagt vann i husene sine etter andre verdenskrig. Tidligere måtte kvinnene og de store barna hente vann fra brønnen til både mennesker og dyr. Til bæringa brukte de børtre som ble lagt over skuldrene. Det var formet og høvlet slik at det skulle være mest mulig behagelig, og det beste emnet til å lage børtreet var ei bjørk med naturvokst krumming.</p>
+                    <p>Om vinteren var det vanlig å bruke en større stamp som ble skjøvet på en vannmeie. Da var det enklest om man var to om arbeidet – en som trakk og en som skjøv – slik at man kom seg gjennom løssnø og skavler uten at stampen veltet og man måtte tilbake til brønnen og begynne på nytt.</p> 
+                    <span>Børtreet tilhører Gamslettsamlingen. Alf Gamslett samlet inn gjenstander fra Lyngen i perioden 1930–1975.</span>
+                </div>
+                <div class="komager-text">
+                    <h1>Kommager</h1>
+                    <p>Kommager var det vanlige fottøyet for samer, kvener og nordmenn i Nord-Troms helt til 1950-tallet. Kommagene ble sydd hjemme eller bestilt fra kommagsyersker. 
+                Til overdelen var det vanlig å bruke rein-, sau-, geit- eller kalveskinn. Sålen på kommagene var vanligvis av kuskinn eller kobbeskinn fordi dette var mer slitesterkt. Kommagene ble sydd for hånd med tråd av tvinnede reinsener – senetråd.</p> 
+                    <p>Kommagene ble behandlet med tran eller tjære for å gjøre dem vanntette. Før bruk ble de fôret med sennagress fra myrene for ekstra isolasjon.</p> 
+                    <span>Kommagene tilhører Gamslettsamlingen. Alf Gamslett samlet inn gjenstander fra Lyngen i perioden 1930–1975.</span>
+                </div>
+                <div class="komagerband-text">
+                    <h1>Kommagbånd og grindvev</h1>
+                    <p>Kommagene ble holdt på plass av lange kommagbånd. Båndene var flettet eller vevd på grindvev. Grindveven var ofte enkel i utformingen, men ble også laget med utskjæringer og annen dekor. Det hendte at grindveven ble gitt som kjærestegave, og at jenta til gjengjeld vevde kommagbånd til kjæresten.</p> 
+                    <p>I Nord-Troms hadde menn vanligvis vevde bånd, mens kvinnene hadde flettede bånd. Til hverdags brukte mennene bånd uten mønstre i sort, grått og brunt, mens det var vanlig med fargerike mønstre til spesielle anledninger. I områdene rundt Lyngenfjorden brukte kvinnene flettede bånd i rødt, blått og gult frem til 1920-tallet, men det fantes mange forskjellige mønstre og fargekombinasjoner i hele regionen. I enkelte familier hadde familiemedlemmene forskjellige mønstre slik at man visste hvem som eide båndene.</p>
+                    <span>Grindvev fra Burfjord datert 1880. Veven er laget av bein, og delene er satt sammen med koppernagler. Elea Lindbom (1880–1930) er registrert som bruker av veven. </span>
+                </div>
+                <div class="tobakkspung-text">
+                    <h1>Tobakkspung</h1>
+                    <p>For gutter og unge menn var det å tygge skrå og røyke tobakk noe som hørte med til det å bli voksen. De helseskadelige effektene var ikke kjente, og røyking ble ofte forbundet med idrett og friluftsliv. Tobakk ble kjøpt i løsvekt på butikken og oppbevart i punger av tekstil og skinn.</p> 
+                    <p>På 1800-tallet var det vanlig at jenter ga forloveden perlebroderi i gave. Kanskje har denne tobakkspungen vært en slik kjærestegave i 1887?</p> 
+                    <span>Heklet tobakkspung datert 1887. På de innfelte broderistykkene er «1887» brodert med perler på den ene siden og «Tobak» brodert på den andre. Tobakkspungen har sannsynligvis tilhørt Ole J. Botholfsen (1846–1928) fra Svensby.</span>
+                </div>
+                <div class="det-nye-testamentet-text">
+                    <h1>Det nye testamentet</h1>
+                    <p>Den svenske presten og botanikeren Lars Levi Læstadius startet i 1844 en vekkelsesbevegelse som skulle vise seg å få stor betydning i Nord-Troms både religiøst og sosialt. Læstadianismen ble en motkultur i forhold til norske myndigheters harde fornorskningspolitikk. Kirken var myndighetenes fremste redskap for å drive frem fornorskningen, og det var blant annet ikke lov å gifte eller konfirmere seg uten å kunne norsk.</p> 
+                    <p>Læstadianismen var på sin side tilhengere av at samene og kvenene hadde rett til å høre og lese Guds ord på sitt eget morsmål. Læstadianerne hadde sine egne predikanter, forsamlinger og forsamlingshus hvor de fritt kunne snakke sine egne språk.</p> 
+                    <span>Det nye testamentet, samiskspråklig utgave (1910)<br>Ođđa Testamenta Min Hærramek ja Bæstamek Jesus Kristus Kristianiast 1910. På innsiden av permen er det skrevet med blyant: «Peder H. Eriksen Solmoen».</span>
+                </div>
+                <div class="lille-katekismen-text">
+                    <h1>Pontoppidans forklaring til Luthers katekisme</h1>
+                    <p>Fornorskningspolitikken gjennomsyret også skolesystemet. I 1880 ble det slått fast at samisk og kvensk ikke skulle brukes mer enn høyst nødvendig. Lærere som var suksessfulle i sitt fornorskningsarbeid fikk lønnspålegg, mens de som ikke kunne vise til gode nok resultater i «ombytte av sprog» ikke fikk det. Det ble også gitt instrukser om at lærerne skulle påse at samisk og kvensk ikke ble benyttet av barna i friminuttene. Flere steder i Nord-Troms ble det bygget internatskoler, der det var forbudt å bruke andre språk enn norsk.</p> 
+                    <p>De samiske lærebøkene var i hovedsak ABC, salmeboka og Luthers lille katekisme. I perioden 1816–1967 ble de fleste lærebøkene trykket som dobbeltspråklige for å lette undervisningen.</p>
+                    <span>Pontoppidans forklaring til Luthers katekisme, norsk og samiskspråklig utgave (1873)  Udtog af Dr. Erich Pontoppidans Forklaring ved H.U. Sverdrup. Boka har vekselvis en side på samisk og en side på norsk. Pontoppidans forklaring var i bruk i Norge etter innføringen av lov om obligatorisk konfirmasjon i Norge i 1736 til ut på 1900-tallet.</span>
+                    <span>Første eier av boka var Anders Bake (fødselsår ukjent). Mathis Mathisen (f. 1862?) kjøpte boka fra Bake 19. september 1875. Brukssted har sannsynligvis vært Badderen.</span>
+                </div>
+                <div class="finsk-bibel-text">
+                    <h1>Finsk bibel</h1>
+                    <p>Tidlig fornorskningspolitikk fokuserte i stor grad på samene. På slutten av 1800-tallet ble også kvenene utsatt for harde fornorskningstiltak. Regjeringen begrunnet dette med det norske språkets tilbakegang i Nord-Troms og Finnmark på grunn av stor innvandring fra Finland. Kvenene representerte en fare fra øst som truet den norske staten. Innenfor den læstadianske bevegelsen var det mange finskspråklige predikanter, og finsk ble i mange områder betraktet som Guds språk.</p>
+                    <span>Bibel finskspråklig utgave 1880 - Biblia<br>
+                    Tittelside mangler. På innsiden av permen er det skrevet med blyant: G.Balke.<br>
+                    Dette kan ha vært sogneprest Georg Balke (f. 1854), Vadsø.<br>Siste eier av boka har vært Hartvik Nilsen (f. 1925).<br>Brukssted har sannsynligvis vært Kvænangsbotn.
+                    </span>
+                </div>       
+            </div>
+            <div class="object-text lang-en">
+                <div class="benkekarde-text">
+                    <h1>Carding board</h1>
+                    <p>Making one’s own textiles was an important part of the self-sufficient society. The women knitted, wove and sewed the majority of fabrics and clothes needed on the farm.</p>
+                    <p>The process of turning wool into yarn was lengthy. After the sheep had been sheared, the wool had to be combed. This is called carding. Carding cleans the wool and makes it even, so the yarn becomes durable. Carding boards were used for carding, and to blend together different types of wool. Once the wool had been carded, it was bundled into a roll and prepared for spinning into yarn on a spinning wheel.</p>
+                    <p>Families were often large, so it was a never-ending task to keep everyone in mittens, socks, sweaters and petticoats. As a result, there was a huge need for yarn, and the women of North Troms “always” had a piece of knitting in their hands.</p>
+                    <span>This carding board is from the Reisadalen valley, and its last owner was probably Helge Hallen (born 1928).</span>
+                </div>
+                <div class="tjaere-kopp-text">
+                    <h1>Tar pot</h1>
+                    <p>The Kven people brought the art of tar production with them when they came to North Troms. Tar production could provide a welcome added income, and the tar had an important place in everyday life because of its ability to preserve objects made of leather, wood and textiles.</p>
+                    <p>The ability of tar to protect and preserve was also transferred to folk medicine and popular superstition. The steam from a pot of tar bubbling on the stove was seen as an excellent means of preventing contagion. Wounds and sores on people and animals were treated with tar compresses, and tar was often rubbed into the chest of someone suffering from a cold. A tar cross above the door or animal pen kept disease and evil spirits away from barns and stables.</p>   
+                </div>
+                <div class="sveipa-beholder-text">
+                    <h1>Bentwood containers</h1>
+                    <p>Several different types of containers were used to prepare, serve and store food, and for storing various kitchen utensils. These were made using a variety of handicraft techniques.</p>
+                    <p>Wood bending was often used to make round or oval containers, such as cake boxes, lunch boxes and butter dishes. A thin piece of wood is bent to the correct shape and the ends sewn together with thin, pliable roots.</p>
+                    <p>The containers could be decorated by painting, pokerwork and/or carving, often in geometric patterns. Another much used motif was the cross, which could protect the food against evil spirits.</p>
+                    <span>Crozed mould for cheese and/or butter, with a deep cross carved into the base. The mould is joined together using flexible roots. It was owned by Josefine Gamslett from Svensby. Beneath the cheese mould, written in pencil are the words: «Min mor Josefine Gamslett» [My mother Josefine Gamslett].</span> 
+                </div>
+                <div class="lagga-beholder-text">
+                    <h1>Stavework containers</h1>
+                    <p>Stavework is a technique that was used to make buckets, churns, canisters and tubs out of wide wood staves. These containers were used for water, milk products and whatever needed to be kept in liquid form. Most people in North Troms made these containers themselves. Both the technique and the tools are the same as are used to make barrels. The difference is that stavework containers are open and have straight sides, while barrels are enclosed at both ends and have curved sides.</p>
+                    <span>Crozed container with lid. The date “1848” is scratched onto its base. The container carries remnants of blue paint, which was an exclusive commodity in the 1800s. Its previous owner and place of use are unknown. The container belongs to the Gamslett Collection. Alf Gamslett collected artefacts from the Lyngen area from 1930 to 1975.</span>   
+                </div> 
+                <div class="boks-text">
+                    <h1>Box</h1>
+                    <p>Small bentwood box made with bone and copper nails. The date “1841” is scratched onto the base of the box, along with the name “Didrik Larsen, Nordkjoselv”, written in ink. The initials “L.P.” have been scratched into the inside of the lid. The box belongs to the Gamslett Collection. Didrik Larsen is probably the person who gave the box to Alf Gamslett, who collected artefacts from the Lyngen area from 1930 to 1975.</p>      
+                </div>
+                <div class="bortre-text">
+                    <h1>Yoke</h1>
+                    <p>Most houses in North Troms did not have an indoor water supply until after World War II. Previously, the women and older children would have to fetch water from the well for both human and animal consumption. They used a yoke across the shoulders to carry the water. The yoke was shaped and planed to be as comfortable as possible. The best material from which to make a yoke was a naturally curving piece of birch wood.</p>
+                    <p>In the winter it was common to use a large tub that was pushed along on a water sled. That was easier to do if there were two people sharing the load – one pulling and the other pushing – so that the tub could be manhandled through loose snow and snowbanks without it tipping over. If it did, they would have to go back to the well and start all over again.</p>
+                    <span>This yoke belongs to the Gamslett Collection. Alf Gamslett collected artefacts from the Lyngen area from 1930 to 1975.</span>        
+                </div>
+                <div class="komager-text">
+                    <h1>Kommag shoes</h1>
+                    <p>Kommag shoes was the most common type of footwear for Sami, Kven and Norwegian people in North Troms right up until the 1950s. Kommag shoes were either made at home or ordered from a kommag-seamstress. The uppers were normally made from reindeer, sheep, goat or calfskin, while the soles were made from cowhide or sealskin because they were more durable. Kommag shoes were sewn by hand with thread made of twisted reindeer sinews.</p>
+                    <p>Kommag shoes were impregnated with cod liver oil or tar to make them waterproof. Before use, they were lined with water sedge from the moors for added insulation.</p>
+                    <span>These Kommag shoes belong to the Gamslett Collection. Alf Gamslett collected artefacts from the Lyngen area from 1930 to 1975.</span>    
+                </div>
+                <div class="komagerband-text">
+                    <h1>Kommag bands and heddle loom</h1>
+                    <p>The kommag shoes were held in place by long kommag bands. The bands were plaited or woven on heddle looms. The heddle loom was often simple in design, but could also be made with carved or other decorative features. Heddle looms were often given as love tokens, in return for which the girl wove kommag bands for her sweetheart.</p> 
+                    <p>In North Troms the men normally wore woven bands, while the women wore plaited bands. For everyday use the men wore bands in plain black, grey or brown, while it was normal to use colourfully patterned bands on special occasions. In the areas around Lyngenfjord, the women wore plaited bands in red, blue and yellow up until the 1920s. However, many different patterns and colour combinations were used throughout the region. In certain homes, family members each had their own special patterns, making it easier to know who owned the various bands.</p>
+                    <span>This heddle loom from Burfjord dates from 1880. The loom is made of bone, and it is fixed together with copper nails. It is recorded as being used by Elea Lindbom (1880–1930).</span>      
+                </div>
+                <div class="tobakkspung-text">
+                    <h1>Tobacco pouch</h1>
+                    <p>For boys and young men, chewing or smoking tobacco was part and parcel of becoming an adult. They had no idea of tobacco’s harmful effects on their health, and smoking was often associated with sports and outdoor pursuits. Tobacco was sold by weight at the shop, and kept in pouches made of fabric or leather. In the 1800s it was common for girls to give their fiancés pearl-embroidered gifts. Perhaps this tobacco pouch was one such love token in 1887?</p>
+                    <span>Crocheted tobacco pouch dating from 1887. On the inlayed sections, “1887” is embroidered with pearls on one side and «Tobak» [Tobacco] on the other. The tobacco pouch probably belonged to Ole J. Botholfsen (1846–1928) from Svensby.</span>
+                </div>
+                <div class="det-nye-testamentet-text">
+                    <h1>New Testament</h1>
+                    <p>In 1844 the Swedish pastor and botanist Lars Levi Læstadius started a revivalist movement that would have a major impact on North Troms, from both a religious and social point of view. Læstadianism represented a counter culture to the Norwegian authorities’ brutal norwegianisation policy. The Church of Norway was the government’s foremost weapon in the drive for norwegianisation. It would, for example, refuse to marry or confirm anyone who could not speak Norwegian.</p>
+                    <p>Læstadianism, on the other hand, supported the view that Sami and Kven people were entitled to hear and read the word of God in their native tongue. Læstadians had their own preachers, congregations and religious meeting houses where they could freely speak their own languages.</p>
+                    <span><strong>Ođđa Testamenta Min Hærramek ja Bæstamek Jesus Kristus Kristianiast 1910.</strong><br>On the inside cover, written in pencil, is the name: “Peder H. Eriksen Solmoen”.</span>
+                </div>
+                <div class="lille-katekismen-text">
+                    <h1>Luther’s little catechism in both Sami and Norwegian</h1>
+                    <p>The norwegianisation policy also applied to the education system. In 1880 it was decided that the Sami and Kven languages should be used no more than was absolutely necessary. Teachers who were successful in their norwegianisation efforts were given pay rises, while those who could not point to good results with regard to “changing languages” did not. Instructions were also given that teachers should make sure the children did not speak Sami and Kven even at playtime. Boarding schools were built at several locations in North Troms, where it was forbidden to speak any language other than Norwegian.</p>
+                    <p>The Sami textbooks were primarily the ABC, the hymnbook and Luther’s little catechism. In the period 1816-1967 the majority of textbooks were printed in bilingual versions to make teaching easier.</p>
+                    <span><strong>Udtog af Dr. Erich Pontoppidans Forklaring ved H.U. Sverdrup.</strong><br>The book has alternating pages in Sami and Norwegian. Pontoppidan’s explanation was in use in Norway from 1736, when compulsory confirmation into the Church of Norway became law in Norway, until a good way into the 20th century. The first owner of the book was Anders Bake (year of birth unknown). Mathis Mathisen (born 1862?) bought the book from Bake on 19 September 1875. It was probably used in Badderen.</span>
+                </div>
+                <div class="finsk-bibel-text">
+                    <h1>Bible in Finnish</h1>
+                    <p>Initially, the norwegianisation policy focused primarily on the Sami. In the late 1800s the Kven minority was also subjected to brutal norwegianisation measures. The government justified their actions by pointing to a decline in the Norwegian language in North Troms and Finnmark due to substantial immigration from Finland. Kvens were seen as representing a danger from the east which threatened the Norwegian state.</p>
+                    <p>Within the Læstadian movement there were many Finnish-speaking preachers, and in many areas Finnish was considered to be God’s language.</p>
+                    <spann><strong>Uusi testamentti ja psaltari. Helsingissä 1901</strong><br>On the inside of the cover, written in pencil, is the name: “Peder H. Eriksen Solmoen”.</span> 
+                </div>        
+            </div>
+            <div class="object-text lang-sa">
+                <div class="benkekarde-text">
+                    <h1>Gárrenbeaŋkka</h1>
+                    <p>Iešbirgejeaddjiservodagas lei dábálaš ahte olbmot ieža ráhkadedje buot lágaš ávdnasiid/diŋggaid. Nissonat godde ja gorro visot biktasiid maid dárbbašedje.</p>
+                    <p>Lei ollu ja áddjás bargu ulluid gárret ja botnit láiggiid. Mannjel go ledje beaskkidan sávccaid galggai ulluid gárret. Gárret fertii vai ullut ráinnodedje ja seahkánedje bures nu ahte nanosnuvve go galggai láigiid botnit. Gárrenbeaŋkkat atnojedje go gárrejedje  ja seaguhedje oktii daid iešgudetlágan ulluid. Mannjel go ulluid ledje gárren, bunttejedje daid nu ahte lei álki go galge botnit dorttiin.</p>
+                    <p>Dalle ledje stuora bearrašat nu ahte lei ollu bargu olles bearraša bivttastit. Buohkaide galge fáhcat, leasttut, báiddit ja vuolosfuolpput. Dainna leige láiggiide  stuora dárbu ja Davvi-Romssa nissoniin lei ge álo gođá gieđas.</p>
+                    <span>Dát gárrenbeaŋkka boahtá Ráissa ávžžis, ja dát lea várra leamaš Helge Hallen:a (r. 1928).</span>
+                </div>
+                <div class="tjaere-kopp-text">
+                    <h1>Bihkka</h1>
+                    <p>Bihkkavuoššan bođii kveanaid mielde Davvi-Romsii. Bihkkavuoššan lei liigedienas, ja bihkka lei dehálaš dan áigge birgejumis. Dainna vuide sihke náhkiid, muoraid ja biktasit vai šadde nanusin ja jeahkkin.</p>
+                    <p>Bihka atne maid dálkasiin. Bihkkačáhcegievdni omman nalde galggai easttadit njoammudávddaid. Háviid sihke olbmuin ja elliin dálkodedje maid bihkáin, ja bihkáin vuide ratti go lei nuorvu. Bihkáin sárggastuvvon ruossa uvssa ja hiŋgaliid bajábealde doalahi dávddaid ja báhagiid eret návehiin ja stálljain.</p>    
+                </div>
+                <div class="sveipa-beholder-text">
+                    <h1>Veaddegárit</h1>
+                    <p>Ledje ollu iešguđetlágan skáhput ja gárit biebmuide, go guossohedje ja vurkodedje biebmuid ja biebmoávdnasiid. Daid duddjojedje juohkelágan vugiin.</p>
+                    <p>Veaddi adnojuvvui dávja go ráhkade jorba ja guhkodáloš skáhpuid ja gáriid, omd. gáhkkogáriid, biebmogáriid ja vuodjaskáhpuid. Asehis muora sojahedje rievttes hápmái/sturrodahkii ja gorro oktii gečiid seakka ruottasiin ja vettiin.</p>
+                    <p>Daid gáriid ja skáhpuid hervejedje vaikko moht, ivdnejedje  ja/dahje niibenjuniin hervejedje, ja hearvaid minsttarat ledje davja njuolggosázut ruossut rássut. Ruossa atne maid dávjá hervemis, dat galggai oainnat várjalit biebmuid báhagiin.</p>
+                    <span>Gohppojuvvon gárri vuostái dahje vudjii mas lea čiekŋalit sárgojuvvon ruossa vuđđui. Gárri lea gorrojuvvon oktii muorra návllaiguin. Dán eaiggát lea leamaš Josefine Gamslett Svensby:as eret. Vuostálohki vuđđui lea čállojuvvon liánttain “Mu eadni Josefine Gamslett”.</span> 
+                </div>
+                <div class="lagga-beholder-text">
+                    <h1>Njelohat, eabbarat, fárbalat, bulehat jna.</h1>
+                    <p>Njelotgoarrun vugiin ráhkadedje skáluid, stámppaid ja gáriid. Dasa atne govda muorrabihtáid. Daid gáriid, stámppaid ja skáluid atne dávja čáhcái, mielkái ja buot lágan golgi diŋgii. Davvi-Romssas ráhkadedje dáid biergasit eanas olbmot ieža. Sihke vuohki ja reaiddut leat dat seamma maid atne go ráhkadedje njelohiid. Dáin gáriin ii lean lohkki ja ledje njuolggo muorain ráhkaduvvon, njelohiin lea lohkki ja leat sojahuvvon jorbaseabbon.</p>
+                    <span>Skáhppu mas lea lohkki. Vuđđui lea sárgojuvvon vuođalohkku “1848”. Skáhpus oidnojit veaháš alit mála dielkkut, mii lei hui bivnnut 1800 logus. Gii dan lea eaiggáduššan ja gos dat lea leamaš anus mii eat dieđe. Njelot gullá maid Gamslett čoakkáldahkii. Alf Gamslett čohkkii biergasiid Ivggus 1930-1975.</span>     
+                </div> 
+                <div class="boks-text">
+                    <h1>Gárri</h1>
+                    <p>Dát unna veaddegáráš lea oktii ráhkaduvvon čorvviin ja veaikenávllaiguin. Vuođalohku “1841” lea sárgojuvvon gári vuđđui. Siskobeallái lohkái lea sárgojuvvon muorrabustávat “L.P”, ja gári vuđđui fas “Didrik Larsen, Nordkjoselv” čállojuvvon pennain. Gárri gullá Gamslettvuorkái, ja Didrik Larsen lea várra addán dan Alf Gamslett:ai. Gamslett čohkkii diŋggaid Ivggus 1930:is 1975 rádjái.</p>   
+                </div>
+                <div class="bortre-text">
+                    <h1>Oalgemuorra</h1>
+                    <p>Eatnasat Davvi-Romssas ožžo sisa čázi mannjel nuppi máilmmisoađi. Ovdal dan fertejedje nissonat ja dat boarraseapmos mánát viežžat čázi gáivos, sihke olbmuide ja šibihiidda. Čáhceguoddimii atne oalgemuora. Oalgemuorra lei sojahuvvon ja heavvalasttejuvvon nu ahte galggai vuogas olgiid nala. Oalgemuora lei buoremus ávnnastit roankke soagis.</p>
+                    <p>Dálvet atne dábálaččat stuora stámppa maid hoige mielgasiid nalde. Dasa lei buoremus jus ledje guovttes – nubbi gii hoiga ja nuppi ges geassá, vai obbasis ii gobmánan stámppa, ja ii dárbbašan jorggihit fas gáivui deavdit oddasit.</p>
+                    <span>Oalgemuorra mii gullá Gamslett čoakkáldahkii. Alf Gamslett čohkkii biergasiid Ivggus dán áigodaga 1930-1975.</span>  
+                </div>
+                <div class="komager-text">
+                    <h1>Čazehat ja riehtehat</h1>
+                    <p>Čazehat ja riehtehat ledje dábáleamos juolgesuojit sihke sámiin, kveanain ja dáččain Davvi-Romssas gitta 1950-lohkui. Čázehiid gorro ieza, dahje diŋgojedje vásetin čázetgoarruin.</p>
+                    <p>Ruojasin atne dábálaččat bohcco-, sávcca-, gáica-, dahje gálbbenáhki. Čázetvuoddun atne gusanáhki dahje riehti, go dat leigga nannoseappot go sisti. Čázehit gorro gieđain ja atne bohccosuonaid  maid botne – bodnonsuonaid.</p>
+                    <p>Čázehit vuide guolevuoivasin dahje bihkáin nu ahte šadde jeahkkin. Ovdal go biddje juolgái dállastedje suinniiguin vai šadde bivválat.</p>
+                    <span>Čázehat mat gulle Gamslett čoakkáldahkii. Alf Gamslett čohkkii biergasiid Ivggus dán áigodaga 1930-1975.</span>
+                </div>
+                <div class="komagerband-text">
+                    <h1>Vuoddagat ja njuikun</h1>
+                    <p>Čázehiid gisse vuoddagiiguin vai bisso juolggis. Vuoddagat ledje bárgiduvvon dahje čuldon njuikuniin. Njuikun ii lean dábálaččat hervejuvvon. Dáhpáhuvai maid ahte njuikuna adde morssiide skeaŋkkan, ja de moarssit čulde vuoddagiid irggiide.</p>
+                    <p>Davvi-Romssas ledje dievdduin dábálaččat čuoldda vuoddagat, ja nissoniin fas bárgiduvvon vuoddagat. Beaivválaččat atne dievddut čáhppes, ránes dahje ruškkes vuoddagiid main eai lean hearvvat. Hearva vuoddagiid atne dušše go čiŋade. Ivggu duovdagiin atne nissonat rukses, alit ja fiskes ivnnat bárgiduvvon vuoddagiid gitta 1920-lohkui, muhto gávdnojedje ollu iešguđetlágan ivnnit ja hearvvat dan guovllus maid. Muhtun sogain ledje iežaset minstarat hearvvain nu ahte dihte geasa /gosa vuoddagat gulle.</p>
+                    <span>Buvrovuona njuikun 1880-logus. Njuikun lea ráhkaduvvon čoarvvis, ja sárgat leat biddjojuvvon oktii veaikenávllaiguin. Elea Lindbom (1880-1930) lea adnán dán njuikuna.</span> 
+                </div>
+                <div class="tobakkspung-text">
+                    <h1>Duhppatlávka</h1>
+                    <p>Beallešaddi lunttat ja nuorra bártnit galge duhpaha suoskkat ja borgguhit vai dovdoje ahte ledje rávisolbmot. Dan áigge ii lean dovddus makkár healsovára duhppat dagahii, ja borgguheapmi gulai dávjá valaštallamii ja meahcastallamii. Duhppaha ostte luovosnaga ja vurkodeddje lávkkain mat ledje gorrojuvvon liidnediŋggain dahje náhkiin. 1800-logus lei dábálaš ahte nieiddat adde irggiide helmmuiguin hervejuvvon čiŋaid skeaŋkkan. Dát duhppatlávka soaitá ge leamašan moarssi skeaŋkka irgái 1887:s?</p>
+                    <span>Heakkelastejuvvon duhpátlávka 1887:as. Dan oasis mii lea hervejuvvon lea “1887” gorrojuvvon helmmuiguin nuppe beallái, ja nuppe beallái lea fas gorrojuvvon “Duhppát”. Dát duhppátlávka lea várra gullan Ole J. Botholfsen:ii (1846-1928) guhte lei eret Svensby:as. </span>   
+                </div>
+                <div class="det-nye-testamentet-text">
+                    <h1>Ođđa teastameantta</h1>
+                    <p>Ruoŧa páhppa ja šaddodutki Lars Levi Læstadius álggahii 1844:is morráneami mas šadde stuora váikkuhusat Davvi-Romssa risttalašvuhtii ja maid muđui servvoštallamiidda. Lestadianisma šattai vuosttálaga garra dáruiduhttinpolitihkkain mii lei Norggas. Girku lei garraseamos reaidu eiseválddiid dáruiduhttimis, ja ii lean lohppi girkus earret eará náitalit dahje konfirmerejuvvot jus ii máhtán dárogiela.</p>
+                    <p>Lestadianisma barggai dan nala ahte sihke sámit ja kveanat galge beassat gullat ipmila sáni iežaset eatnigillii. Lestadianeriin ledje iežaset sárdeolbmát, čoakkámat ja čoakkánviesut gos buohkat besse hupmat eatnigielaset.</p>
+                    <span><strong>Ođđa testameantta, sámegiel almmuhus (1910)</strong><br>Ođđa Teastamentta Min Hærramek ja Bæstamek Jesus Kristus Krisianiast 1910.<br>Bearbma siskkobeallái lea čállojuvvon liánttain :”Peder H. Eriksen, Solmoen”.</span>   
+                </div>
+                <div class="lille-katekismen-text">
+                    <h1>Pontoppidans čilgehus Luhtera Katekismii</h1>
+                    <p>Skuvllain lei dáruiduhttinpolitihkka garas. 1880:s mearriduvvui ahte sámegiella ja kveanaidgiella ii galgan atnot earret jus lei áibbas dárbbašlaš. Oahpaheaddjit guđet nagodedje dan doallat ja sáhtte čájehit buriid bohtosiid, ožžo lassibálkká, ja sii guđet eai nagodan čájehit ahte mánát lonuhedje giela, eai ožžon bálkálasáhusa. Ráhkaduvvui maid njuolggádus mas bođii ovdan ahte oahpaheaddjit galget čuovvot mielde ahte sámegiella ja kveanaidgiella ii atnon friddjagoartiliin ge. Ollu báikiide Dávvi-Romssas huksejuvvojedje internahtat gos ii lean lohppi hupmat earet dárogiela.</p>
+                    <p>Sámegiel oahppogirjjit ledje dušše Áppes, sálbmagirji ja Luhtera uhca kátekismusaš. 1816-1967 prenttejuvvojedje eanas oahppogirjjit guovttigillii vai oahpaheapmi galggai šaddat geahppaseabbon.</p> 
+                    <span>Pontoppidans čilgehus Luhtera Katekismii, dáru ja sámegiel almmuhus (1873) Oassi Dr. Erich Pontoppidans Čilgehusas maid  H.U. Sverdrup lea čállán.Girjjis lea goabbat siidu sámi ja dárogillii. Pontoppidans čilgehusat ledje anus Norggas maŋŋel go šattai bággu konfirmerehit nuoraid 1736:as gitta 1900-lohkui.<br>Vuosttaš guhte eaiggádušai dán lei Anders Bake (eat dieđe goas lea riegádan). Mathis Mathisen (r. 1862?) osttii dán Bake:es čakčamánu 19. Beaivvi 1875:s. Dát lea várra adnojuvvon Báttaris.</span> 
+                </div>
+                <div class="finsk-bibel-text">
+                    <h1>Suomagiel biibbal</h1>
+                    <p>Álgo dáruiduhttinpolitihkka guoskai vuosttamužžat sámiide. 1800-logu loahpa geahčen galge kveanat maid dáruiduhttot. Ráđđehus ákkastalai ahte dárogiella goariduvvo Davvi-Romssas ja Finnmárkkus go nu ollu sisafárrejeaddjit bohte suomabealde. Kveanat mat bohte nuortan ledje goaradussan Norgga stádai. Lestadianeriin ledje ollu suomagielat sárdneolbmát, ja suomagiela atne olu báikiin risttalašvuođa giellan.</p>       
+                </div>        
+            </div>
+            
+            <div class="object-text lang-kv">
+                <div class="benkekarde-text">
+                    <h1>Isokartta</h1>
+                    <p>Ko hääythiin pärjätä ittenäisesti, niin oli tärkkee laittaat ommii kankhaita. Vaimot kuothiin, vääväthiin ja neulothiin kohta kaikki tekstiilit ja vaattheet mitä tarvithiin.</p>
+                    <p>Se vaati paljon työtä tehhä villasta lankkaa. Jälkhiin ko lamphaat olthiin leikattu, piti kammata eli kartata villan. Karttaaminen puhistaa villan ja tekkee sen tasaseksi ja kestääväksi. Isokartala kartathiin ja panthiin erisorttissii villoi yhtheen. Jälkhiin ko villan oli kartattu, sen panthiin yhtheen rullaksi. Sitte villasta saattoi kehrätä lankkaa tortila.</p>
+                    <p>Perheet olthiin usheen isot, ja sen tähen häätyi tehhä paljon työtä, ette kaikila oltais vantthuut, lestat, tröijyt ja alushamheet. Siihen tarvithiin paljon lankkaa. Pohjais-Tromssan vaimoila oliki “tasan” kutomatyö käsissä.</p>
+                    <span>Tämä isokartta oon Raisinvankasta, ja viiminen omistaaja oli arvatenki Helge Hallen (s. 1928)</span>
+                </div>
+                <div class="tjaere-kopp-text">
+                    <h1>Tervakuppi</h1>
+                    <p>Kväänit olthiin sepät laittamhaan tervaa, ja tämän taion het tuothiin myötä ko siirythiin Pohjais-Tromsshaan. Tervan poltto saattoi anttaat mielhuista lisätienastii, ja terva oli tärkkee ihmisten arkipäivässä. Nahat, puuneuvot ja kankhaat tulthiin lujemiksi ko net tervathiin.</p>
+                    <p>Tervala oli kyky suojela ja säilyttäät. Sen tähen terva oli kansanmetesiini, ja sillä oli kans tärkkee merkitys kansanuskossa. Tervakupin panthiin uunin pääle ja siitä nousi tervahöyryy, minkä piti suojela sairhauksii vasthaan. Ihmisten ja elläimiitten haavoi ja vammoi hauothiin tervala. Ko kellä oli yskä, pruukathiin voiela sairhaan rinttaa tervala. Tervaristi oven tahi hinkalon ylipuolela piti sairhauet ja pahat voimat poissa navetoista ja talliista.</p>        
+                </div>
+                <div class="sveipa-beholder-text">
+                    <h1>Suijutetut puuastiit</h1>
+                    <p>Köökissä piethiin monenlaissii astiita ko kokathiin, serveerathiin sekä laakrathiin ruokkaa ja säilytethiin erilaissii köökkitavaroita. Astiita snikkaroithiin monela eri laila.</p>
+                    <p>Ko snikkaroithiin ymmyräissii tahi ovaaliita astiita, niin ko kakko-, ruoka- ja voiastiita, suijutethiin ohukaisen puupalasen siksi ko se sai oikheen mallin. Sitte puupalasen päät neulothiin yhtheen ohukaisila juurila.</p>
+                    <p>Astiit koristelthiin monela eri tavala. Niitä maalathiin, ja niihin poltethiin tahi vuolthiin geomeetrissii mönsteriitä.</p>
+                    <p>Astiisseen pruukathiin priimustaat ristin kuvan. Ristin piti suojela ruokkaa pahoilta voimilta.</p>
+                    <span><strong>Juusto- tahi voiformu</strong><br>
+                    Puinen juusto- ja/tahi voiformu. Pohjhaan oon vuoltu syvän ristinkuvan. Formun oon neulottu yhtheen juurila. Sen oon omistannu svensbyläinen Josefine Gamslett. Juustoformun alle oon kirjotettu pliantilla: “Min mor Josefine Gamslett”, eli Minun muori Josefine Gamslett.
+                    </span>           
+                </div>
+                <div class="lagga-beholder-text">
+                    <h1>Puiset sauva-astii</h1>
+                    <p>Tämän teknikin avula laitethiin ämpäriitä eli pyttyi, tamppui ja kaaroi levveistä puusauvoista tahi puupalasista. Näissä astiissa säilytethiin vettä, maitotavaroita ja muuta huilaavaa. Pohjais-Tromssassa pruukathiin snikkaroia astiit itte. Teknikki ja työkalut olthiin samat ko snikkaroithiin tynnyriitä. Tämän teknikin ja tynnyrintevon välilä oon kuiten se ero, ette puuastiissa ei ole kantta ja sauvat oon suorat, ko taas tynnyrissä oon pohjat kummassaki päässä ja sauvoissa oon kaari.</p>
+                    <span><strong>Puuastii</strong><br>Puuastii ja kansi. Vuosiluvun “1848” oon priimusteltu pohjhaan. Astiissa oon sinisen maalin rästit. Sininen maali oli eksklusiivinen tavara 1800-luvula. Ei ole tiettoo, kuka entinen omistaaja oon ja missä paikassa astii oon ollu piossa. Astii kuuluu Gamsletin kokhoon. Alf Gamslett kokos tavaroita Yykeästä vuossiin 1930-1975 aikana.</span>      
+                </div> 
+                <div class="boks-text">
+                    <h1>Rassii</h1>
+                    <p>Pieni suijutettu rassii, jonka oon koristettu luila ja kuparipiikariila. Vuosiluvun “1841” oon priimusteltu rassiin alapuolele. Kannen sisäpuolele oon priimusteltu initiaalit “L.P.”. Rassiin alle oon kirjotettu “Didrik Larsen, Nordkjoselv” eli Didrik Larsen, Ryssäpahanjoki. Rassii kuuluu Gamsletin kokhoon, ja Didrik Larsen oon arvatenki se, joka antoi rassiin Gamsletille. Alf Gamslett kokos tavaroita Yykeästä vuossiin 1930-1975 aikana.</p>  
+                </div>
+                <div class="bortre-text">
+                    <h1>Olkapuu</h1>
+                    <p>Jälkhiin toisen mailmansoan saathiin usheimat pohjaistromssalaiset vesiröörin omhiin huonheissiin. Aijemin oli niin, ette vaimot ja isomat lapset hääythiin nouttaat veen kaivosta sekä ihmisille ja elläimille. Kantaamisheen piethiin olkapuuta. Sen olthiin tehty ja höylätty sillä tavala, ette sitä olis mukava kanttaat. Käyrhään kasunu koiju oli paras aunas ko tehthiin olkapuun.</p>
+                    <p>Talvela oli tavalista pittäät isomppaa tamppuu jota lykäthiin jalasten päälä.
+                    Työ meni helpomin jos oli kaksin – yksi veti ja toinen lykkäs. Sillä laila päästhiin kulkemhaan hangessa ilman ette tamppu kaatui ja oli pakko mennä takaisin kaivole täyttämhään sen uuesti.</p>
+                    <span><strong>Olkapuu</strong><br>Olkapuu kuuluu Gamsletin kokhoon. Alf Gamslett kokos tavaroita Yykeästä vuossiin 1930-1975 aikana. </span>
+                </div>
+                <div class="komager-text">
+                    <h1>Vuotakengät</h1>
+                    <p>Vuotakengät olthiin saamelaisten, kvääniin ja ruijalaisten tavalisin jalkaneuvo Pohjais-Ruijassa kiini 1950-luvule. Vuotakengät neulothiin kotona tahi kengäneuloojat neulothiin net.</p>
+                    <p>Kengän yliosa oli poron-, lamphaan,- keiturin- tahi vasikannahkaa. Vuotakenkkiin solat olthiin tavalisesti lehmän- tahi hylkheennahkaa sillä se oli lujemppaa. Vuotakengät neulothiin käsin punotuila poron suonila – suonilangala</p>.
+                    <p>Vuotakengät voielthiin traanila eli tervala niin ette niistä tultais veenkestäävät. Ennen pittoo panthiin niihin kenkäheinää, mikä kassuu jänkässä. Sillä laila niistä tuli lämpimämmät.</p>       
+                </div>
+                <div class="komagerband-text">
+                    <h1>Paulat ja tihta</h1>
+                    <p>Vuotakengät pysythiin jaloissa pitkilä pauloila. Paulat palmikoithiin tahi vääväthiin tihtala. Tihta oli usheen yksinkertanen, mutta siihen veistethiin kans mönsteriitä, tahi koristelthiin muula tavala. Muutamisti sattui, ette morssii sai tihan skenkiksi, ja morssii taas vääväsi paulat mieskaverille.</p>
+                    <p>Pohjais-Tromssassa oli miesten paulat tavalisesti väävätyt, ja vaimoin paulat taas palmikoitut. Arkena miehet piethiin mustii, harmaajii ja pruuniita pauloi, jossa ei ollu mönsteriitä. Ko oli erikoinen tapattuma eli fästi, piethiin kirjaavii pauloi.</p>
+                    <p>Kylissä Yykeänvuonon ympäri olthiin vaimoila punaset, siniset ja keltaset palmikoitut paulat kiini 1920-lukhuun saakka, mutta se löytyi monenlaissii mönsteriitä ja färikombinašuunii koko rekiuunissa. Muutamissa perheissä oli kaikila erilaissii mönsteriitä pauloissa, niin ette tiethiin mikkä paulat olthiin kenenki.</p>
+                    <span>Tihta Puruvuonosta vuoelta 1880. Väävin oon tehty puusta, ja osat oon pantu yhtheen kuparinaulala. Elea Lindbom (1880–1930) oon rekistreerattu väävin käyttääjäksi.</span>      
+                </div>
+                <div class="tobakkspung-text">
+                    <h1>Tupakkakukkaro</h1>
+                    <p>Ko pojat ja nuoret miehet alethiin puremhaan ja polttamhaan tupakkaa, oli se merkki siitä, ette het olthiin heti ravhaat. Silloin ei vielä ollu tiossa, ette tupakka pillaa tervheyen. Polttaminen kuului sporthiin ja mettä- ja tunturielämhään. Tupakkaa ostethiin vaakatavaranna kaupasta ja säilytethiin kangas- ja nahkakukkarossa.</p>
+                    <p>1800-luvula oli tavalista, ette morssiit annethiin rakastetulle helmibrodeerin skenkkinä. Piian tämä tupakkakukkaro oon ollu morssiin skenkki vuona 1887?</p>
+                    <span>Häklätty tupakkakukkaro vuoelta 1887.<br>Brodeerikappalheissa oon brodeerattu helmilä luvun “1887” yhele puolele ja “Tobak” toisele puolele.<br> Tupakkakukkaron omisti luultavasti svensbyläinen Ole J. Botholfsen (1846–1928).</span>
+                </div>
+                <div class="det-nye-testamentet-text">
+                    <h1>Uusi testamentti</h1>
+                    <p>Ruottalainen pappi ja botanikkari Lars Levi Læstadius aloitti vuona 1844 herätyslikkheen, joka sai ison uskonolisen ja sosiaalisenki merkityksen Pohjais-Tromssassa. Lestaatilaisuuesta tuli vastakulttuuri Ruijan esivalttoin kovale ruijalaistamispolitikile. Kirkko oli esivalttoin tärkkein apu ruijalaistamisessa. Muun myötä ei ollu lupa mennä naimishiin tahi käyä rippikouluu jos ei saattanu ruijaa.</p>
+                    <p>Lestaatilaisliikkheessä piethiin tärkkeenä sitä, ette saamelaisila ja kvääniilä oli oikkeus kuula ja lukkeet Jumalan sannaa omala äitinkielelä. Lestaatilaisilla olthiin omat saarnamiehet, kokkoukset ja kokkoushuonheet, missä kaikin päästhiin puhumhaan ommaa äitinkieltä.</p>
+                    <span><strong>Saamenkielinen Uusi testamentti, (1910)</strong><br>Ođđa Testamenta Min Hærramek ja Bæstamek Jesus Kristus Kristianiast 1910. Pärmin sisäpuolele oon kirjotettu pliantilla: «Peder H. Eriksen Solmoen».</span>      
+                </div>
+                <div class="lille-katekismen-text">
+                    <h1>Lutherin pikku katekismus saameksi ja ruijaksi</h1>
+                    <p>Ruijalaistamispolitikki oli kova kouluissa. Vuona 1880 tuli päätös, ette saamee ja kväänii saapi pittäät tyhä silloin ko oli aivan tarpheelista. Opettaajat jokka menestythiin ruijalaistamistyössä, saathiin pareman palkan, ko taas het jokka ei menestynheet yhtä hyvin kielenvaihettamisessa, saathiin huonoman palkan. Opettaajan piti kans kattoot pörhään, ette koululapset ei koulupaussilakhaan puhunheet saamee tahi kväänii. Monheen paikkhaan Pohjais-Tromssassa pykäthiin internaattikoului, joissa ei ollu lupa puhhuut muuta kieltä ko ruijaa.</p>
+                    <p>Saamenkieliset oppikirjat olthiin pääassiissa aapiskirja, virsikirja ja Lutherin pikku katekismus. Vuosina 1816–1967 präntäthiin kaksikielissii kirjoi, niin ette tulis helpompi opettaat.</p>
+                    <span><strong>Pontoppidanin ruijan- ja saamenkielinen selitys Lutherin katekismukselle (1873)</strong><br>Udtog af Dr. Erich Pontoppidans Forklaring ved H.U. Sverdrup.<br>Kirjassa oon joka toinen laita saameksi ja joka toinen laita ruijaksi. Pontoppidanin selitys oli piossa siitä saakka, ko vuona 1736 tehtiin lain, ette kaikin oli pakko käyä rippikoulun. Laki oli voimassa kiini 1900-luvule saakka.<br><br>Ensimäinen omistaaja oli Anders Bake (syntymävuosi tuntematon). Mathis Mathisen (s. 1862?) osti kirjan Bakelta 19. septemperikuuta 1875. Kirja oon luultavasti ollu piossa Paattarissa.</span>   
+                </div>
+                <div class="finsk-bibel-text">
+                    <h1>Suomenkielinen raamattu</h1>
+                    <p>Ensisti ruijalaistamispolitikki koski enniimiten saamelaissii. 1800-luvun lopussa alethiin ruijalaistamhaan kans kvääniitä. Hallitus sanoi, ette se oli siksi ko ruijan kieli oli kattoomassa Pohjais-Tromssassa ja Finmarkussa, ko sinne tuli niin paljon väkkee Suomesta. Hallitus pölkäs, ette kväänit oltais vaara ja uhka, mikä tuli öystästä käsin.</p>
+                    <p>Lestaatilaisessa liikkheessä oli monta suomenkielistä saarnamiestä, ja monissa aloissa piethiin, ette suomi oli Jumalan kieli.</p>
+                    <span><strong>Suomenkielinen Uusi testamentti ja Virsikirja (1901)</strong><br><br>Uusi testamentti ja psaltari. Helsingissä 1901<br><br>Pärmin sisäpuolele oon kirjotettu pliantilla: «Peder H. Eriksen Solmoen».</span>
+                        
+                </div>        
+        </div>
+        </aside>
+        <aside class="historical-image">
+            <img src="images/benkekarde.jpg" class="old-image benkekarde-text" />
+            <img src="images/boks.jpg" class="old-image boks-text" />
+            <img src="images/det-nye-testamentet.jpg" class="old-image det-nye-testamentet-text" />
+            <img src="images/finsk-bibel.jpg" class="old-image finsk-bibel-text" />
+            <img src="images/grindvev-komagerband.jpg" class="old-image komagerband-text" />
+            <img src="images/komager.jpg" class="old-image komager-text" />
+            <img src="images/lagga-beholdere.jpg" class="old-image lagga-beholder-text" />
+            <img src="images/luthers-lille-katekisme.jpg" class="old-image lille-katekismen-text" />
+            <img src="images/sveipa-beholder-.jpg" class="old-image sveipa-beholder-text" />
+            <img src="images/tjaerekopp.jpg" class="old-image tjaere-kopp-text" />
+            <img src="images/tobakkspung.jpg" class="old-image tobakkspung-text" />
+            <img src="images/bortre.jpg" class="old-image bortre-text" />
+        </aside>
+        <div class="back to-history"></div>
+    </section>
+  </body>
+</html>

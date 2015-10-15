@@ -1,0 +1,481 @@
+@font-face {
+font-family: 'conduit_itclight';
+    src: url('../font/conduit_itc_medium-webfont.eot');
+    src: url('../font/conduit_itc_medium-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../font/conduit_itc_medium-webfont.svg#conduit_itclight') format('svg'),
+        url('../font/conduit_itc_medium-webfont.woff2') format('woff2'),
+        url('../font/conduit_itc_medium-webfont.woff') format('woff'),
+        url('../font/conduit_itc_medium-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+html,body {
+	margin:0;
+	padding:0;
+	overflow:hidden;
+	font-family: arial, sans-serif;
+	font-size:16px;
+	-webkit-user-select: none;
+}
+
+.fullscreen {
+	position:absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	background-size:100%;
+}
+
+/* Meny for språk */
+#menu {
+    position: fixed;
+    top: 10px;
+    left: 0;
+    z-index: 6;  
+/*     display: block; */  
+}
+#menu li {
+    float: left;
+    margin-right: 30px;
+    list-style: none !important;
+}
+#menu li a {
+    display: block;
+    width: 58px;
+    height: 61px;
+    cursor: pointer;
+    opacity: .5;
+}
+#home-icon {
+    background-image: url(../images/home.svg);
+    background-size: cover;
+}
+#lang-no {
+    background-image: url(../images/language_no.svg);
+    background-size: cover;
+}
+#lang-en {
+    background-image: url(../images/language_en.svg);
+    background-size: cover;
+}
+#lang-sa {
+    background-image: url(../images/language_sa.svg);
+    background-size: cover;
+}
+#lang-kv {
+    background-image: url(../images/language_kv.svg);
+    background-size: cover;
+}
+.lang-no,.lang-en, lang-sa, .lang-kv {
+        display: none;
+}
+
+
+/* Front */
+#front {
+	display:block;
+}
+.front {
+	list-style:none;
+	margin:0;
+	padding:0;
+	font-size:1rem;
+	position:absolute;
+	bottom:0;
+	top:0;
+	right:0;
+	left:0;
+	background: url(../images/Skjermsp_kjokken_1920x1080.jpg);
+}
+
+.front-choice {
+	font-family: "conduit_itclight";
+	text-transform: uppercase;
+	font-size:11em;
+	position:absolute;
+	color:rgba(95,102,111,0.5);
+	display: block !important;
+}
+
+.front-choice:first-child {
+	top:15%;
+	left:40%;
+	animation: scale ease 25s infinite;
+}
+
+.front-choice:nth-child(2) {
+	top:35%;
+	left:15%;
+	-webkit-transform: scale(0.8);
+	animation: scalee ease 25s infinite;
+}
+
+.front-choice:nth-child(3) {
+	top:32%;
+	left:55%;
+	animation: scale ease 25s infinite;
+}
+
+.front-choice:nth-child(4) {
+	top:55%;
+	left:28%;
+	animation: scale ease 25s infinite;
+}
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* History */
+#history {
+    display:none;
+    background: url(../images/intro_kjokken.jpg);    
+}
+.history-text {
+    position: absolute;
+    width: 1500px;
+    top: 500px;
+    left: 130px;
+    padding: 10px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    font-size: 2rem;
+    color: #999;
+}
+.history-text::-webkit-scrollbar { 
+    display: none; 
+}
+.history-text h1 {
+    text-transform: uppercase;
+        font-size: 4rem;
+        font-weight: normal;
+        color: #6a86a8;
+        margin-bottom: 30px;
+}
+#items {
+	display:none;
+	background-color: #232629;
+}
+#items div {
+    position: absolute;
+    -webkit-transition: all .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    transition: all .2s ease-out;
+}
+#items div img {
+    -webkit-transition: all .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    transition: all .2s ease-out;
+}
+.sveipa-beholder {
+    left: 94px;
+    top: 133px; 
+}
+.sveipa-beholder.moved {
+    -webkit-transform: translate(1206px,330px);
+    -moz-transform: translate(1206px,330px);
+    transform: translate(1206px,330px);   
+}
+.sveipa-beholder img {
+    width: 275px;
+    height: auto;
+}
+.komagerband {
+    left: 537px;   
+    top: 63px;
+}
+.komagerband.moved {
+    -webkit-transform: translate(663px,437px);
+    -moz-transform: translate(663px,437px);
+    transform: translate(663px,437px);   
+}
+.komagerband img {
+    width: 317px;
+    height: auto; 
+}
+.grindvev {
+    left: 958px;
+    top: 86px;
+}
+.grindvev.moved {
+    -webkit-transform: translate(200px,367px);
+    -moz-transform: translate(200px,367px);
+    transform: translate(200px,367px);
+}
+.grindvev img {
+    width: 432px;
+    height: auto;
+}
+.boks {
+    left: 1556px;
+    top: 77px;
+}
+.boks.moved {
+    -webkit-transform: translate(-230px,390px);
+    -moz-transform: translate(-230px,390px);
+    transform: translate(-230px,390px);
+}
+.boks img {
+    width: 270px;
+    height: auto;
+}
+.finsk-bibel {
+    left: 56px;
+    top: 409px;
+}
+.finsk-bibel.moved {
+    -webkit-transform: translate(1206px,50px);
+    -moz-transform: translate(1206px,50px);
+    transform: translate(1206px,50px);   
+}
+.finsk-bibel img {
+    width: 262px;
+    height: auto;
+}
+.komager {
+    left: 360px;
+    top: 461px;
+}
+.komager.moved {
+    -webkit-transform: translate(830px,0px);
+    -moz-transform: translate(830px,0px);
+    transform: translate(830px,0px);   
+}
+.komager img {
+    width: 415px;
+    height: auto;
+}
+.lille-katekismen {
+    left: 787px;
+    top: 465px;
+}
+.lille-katekismen.moved {
+    -webkit-transform: translate(500px,80px);
+    -moz-transform: translate(500px,80px);
+    transform: translate(500px,80px);   
+}
+.lille-katekismen img {
+    width: 318px;
+    height: auto;
+}
+.benkekarde {
+    left: 1156px;
+    top: 396px;
+}
+.benkekarde.moved {
+    -webkit-transform: translate(80px,80px);
+    -moz-transform: translate(80px,80px);
+    transform: translate(80px,80px);   
+}
+.benkekarde img {
+    width: 366px;
+    height: auto;
+}
+.tobakkspung {
+    left: 1567px;
+    top: 367px;
+}
+.tobakkspung.moved {
+    -webkit-transform: translate(-330px,100px);
+    -moz-transform: translate(-330px,100px);
+    transform: translate(-330px,100px);   
+}
+.tobakkspung img {
+    width: 294px;
+    height: auto;
+}
+.tjaere-kopp {
+    left: 131px;
+    top: 734px;
+}
+.tjaere-kopp.moved {
+    -webkit-transform: translate(1106px,-300px);
+    -moz-transform: translate(1106px,-300px);
+    transform: translate(1106px,-300px);   
+}
+.tjaere-kopp img {
+    width: 188px;
+    height: auto;
+}
+.bortre {
+    left: 480px;
+    top: 763px;
+}
+.bortre.moved {
+    -webkit-transform: translate(640px,-200px);
+    -moz-transform: translate(640px,-200px);
+    transform: translate(640px,-200px);   
+}
+.bortre img {
+    width: 510px;
+    height: auto;
+}
+.lagga-beholder {
+    left: 1140px;
+    top: 714px;
+}
+.lagga-beholder.moved {
+    -webkit-transform: translate(100px,-250px);
+    -moz-transform: translate(100px,-250px);
+    transform: translate(100px,-250px);   
+}
+.lagga-beholder img {
+    width: 238px;
+    height: auto;
+}
+.det-nye-testamentet {
+    left: 1521px;
+    top: 761px;
+}
+.det-nye-testamentet.moved {
+    -webkit-transform: translate(-230px,-180px);
+    -moz-transform: translate(-230px,-180px);
+    transform: translate(-230px,-180px);   
+}
+.det-nye-testamentet img {
+    width: 340px;
+    height: auto;
+}
+
+/* Effekter for gjenstandene */
+
+.blue-bg {
+    background-color: #0e182d !important;
+    -webkit-transition: background-color .6s linear;
+}
+.blur {
+    -webkit-filter: blur(5px);
+    opacity:0.4;
+    transition: .5s -webkit-filter linear;
+}
+.scaled {
+    -webkit-transform: scale(2.2);
+}
+.bortre img.scaled {
+    -webkit-transform: scale(1.9);
+}
+.info {
+    background: url(../images/panel.png) no-repeat;
+    width: 950px;
+    margin-left: -55%;
+    float: left;
+    height: 100%;
+    position: fixed;
+    z-index: 4;
+    -webkit-transition: margin 0.2s ease-in-out;
+}
+.slide-in {
+    margin-left: 0;
+}
+.slide-out {
+    margin-left: -55% !important; 
+}
+.object-text {
+    position: absolute;
+    top: 200px;
+    left: 70px;
+    width: 800px;
+    height: 680px;
+    padding: 10px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    font-size: 1.4rem;
+    color: #999;
+}
+.object-text::-webkit-scrollbar { 
+    display: none; 
+}
+.object-text h1 {
+        text-transform: uppercase;
+        font-size: 1.8rem;
+        font-weight: normal;
+        color: #6a86a8;
+        margin-bottom: 30px;
+    }
+.object-text p {
+    width: 700px;
+}
+.object-text p + p {
+    margin-top: 20px;
+}
+.object-text span {
+    max-width: 700px;
+    font-style: italic;
+    font-size: 1.2rem;
+    display: block;
+}
+.close {
+    width: 86px;
+    height:86px;
+    background: url(../images/icons.png) top left;
+    position: absolute;
+    right: 40px;
+    top: 30px;
+    display: none;
+    z-index: 5;
+}
+.back {
+	width: 85px;
+    height:86px;
+    background: url(../images/icons.png) 171px 0;
+    position: absolute;
+    left: 40px;
+    bottom: 20px;
+    position: absolute;
+/*
+    left: -100px;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 2s;
+*/
+}
+/* Bildepanel */
+.historical-image {
+    width:1160px;
+    height: 100%;
+    margin-left: 1920px;
+    float: right;
+    position: fixed;
+    -webkit-transition: margin 0.2s ease-in-out;
+    -moz-transition: margin 0.2s ease-in-out;
+    transition: margin 0.2s ease-in-out;
+    z-index: 3;
+}
+.old-image {
+    width:1160px;
+    height: 100%;
+}
+.historical-image.slide-in {
+    margin-left: 760px;
+}
+.historical-image.slide-out {
+    margin-left: 1920px !important;
+}
+.next {
+	width: 85px;
+    height:86px;
+    background: url(../images/icons.png) 85px 0;
+    position: absolute;
+    right: 40px;
+    bottom: 30px;
+}
+.big-image, .small-image {
+    width: 85px;
+    height:86px;
+    background: url(../images/icons.png) 341px 0;
+    position: absolute;
+    right: 40px;
+    bottom: 30px;
+    display: none;
+    z-index: 5;
+}
+.small-image {
+    background: url(../images/icons.png) 256px !important;
+    display: none;
+}
