@@ -86,7 +86,7 @@ html,body {
 	top:0;
 	right:0;
 	left:0;
-	background: url(../images/Skjermsp_kjokken_1920x1080.jpg);
+	background: url(../images/Skjermsparer_Vidda.jpg);
 }
 
 .front-choice {
@@ -100,27 +100,29 @@ html,body {
 
 .front-choice:first-child {
 	top:15%;
-	left:40%;
+	left:30%;
 	animation: scale ease 25s infinite;
 }
 
 .front-choice:nth-child(2) {
 	top:35%;
-	left:15%;
+	left:5%;
 	-webkit-transform: scale(0.8);
 	animation: scalee ease 25s infinite;
+	font-size: 10em;
 }
 
 .front-choice:nth-child(3) {
 	top:32%;
-	left:55%;
+	left:48%;
 	animation: scale ease 25s infinite;
 }
 
 .front-choice:nth-child(4) {
 	top:55%;
-	left:28%;
+	left:18%;
 	animation: scale ease 25s infinite;
+	font-size: 9.5em;
 }
 section {
     position: relative;
@@ -130,7 +132,7 @@ section {
 /* History */
 #history {
     display:none;
-    background: url(../images/intro_kjokken.jpg);    
+    background: url(../images/grafikkbakgrunn_Vidda.jpg);    
 }
 .history-text {
     position: absolute;
@@ -141,7 +143,7 @@ section {
     overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #999;
 }
 .history-text::-webkit-scrollbar { 
@@ -149,7 +151,7 @@ section {
 }
 .history-text h1 {
     text-transform: uppercase;
-        font-size: 4rem;
+        font-size: 3rem;
         font-weight: normal;
         color: #6a86a8;
         margin-bottom: 30px;
@@ -171,173 +173,69 @@ section {
     -o-transition: all .2s ease-in;
     transition: all .2s ease-out;
 }
-.sveipa-beholder {
-    left: 94px;
-    top: 133px; 
+.dall {
+    left: 140px;
+    top: 216px; 
 }
-.sveipa-beholder.moved {
-    -webkit-transform: translate(1206px,330px);
-    -moz-transform: translate(1206px,330px);
-    transform: translate(1206px,330px);   
+.dall.moved {
+    -webkit-transform: translate(1050px,200px);
+    -moz-transform: translate(1050px,200px);
+    transform: translate(1050px,200px);   
 }
-.sveipa-beholder img {
-    width: 275px;
+.dall img {
+    width: 418px;
     height: auto;
 }
-.komagerband {
-    left: 537px;   
-    top: 63px;
+.skaller {
+    left: 700px;   
+    top: 68px;
 }
-.komagerband.moved {
-    -webkit-transform: translate(663px,437px);
-    -moz-transform: translate(663px,437px);
-    transform: translate(663px,437px);   
+.skaller.moved {
+    -webkit-transform: translate(400px,330px);
+    -moz-transform: translate(400px,330px);
+    transform: translate(400px,330px);   
 }
-.komagerband img {
-    width: 317px;
+.skaller img {
+    width: 628px;
     height: auto; 
 }
-.grindvev {
-    left: 958px;
-    top: 86px;
+.votter {
+    left: 1450px;
+    top: 134px;
 }
-.grindvev.moved {
-    -webkit-transform: translate(200px,367px);
-    -moz-transform: translate(200px,367px);
-    transform: translate(200px,367px);
+.votter.moved {
+    -webkit-transform: translate(-200px,200px);
+    -moz-transform: translate(-200px,200px);
+    transform: translate(-200px,200px);
 }
-.grindvev img {
-    width: 432px;
+.votter img {
+    width: 370px;
     height: auto;
 }
-.boks {
-    left: 1556px;
-    top: 77px;
+.grene {
+    left: 240px;
+    top: 612px;
 }
-.boks.moved {
-    -webkit-transform: translate(-230px,390px);
-    -moz-transform: translate(-230px,390px);
-    transform: translate(-230px,390px);
+.grene.moved {
+    -webkit-transform: translate(900px,-150px);
+    -moz-transform: translate(900px,-150px);
+    transform: translate(900px,-150px);
 }
-.boks img {
-    width: 270px;
+.grene img {
+    width: 562px;
     height: auto;
 }
-.finsk-bibel {
-    left: 56px;
-    top: 409px;
+.sennatraad {
+    left: 1152px;
+    top: 622px;
 }
-.finsk-bibel.moved {
-    -webkit-transform: translate(1206px,50px);
-    -moz-transform: translate(1206px,50px);
-    transform: translate(1206px,50px);   
+.sennatraad.moved {
+    -webkit-transform: translate(-60px,-200px);
+    -moz-transform: translate(-60px,-200px);
+    transform: translate(-60px,-200px);   
 }
-.finsk-bibel img {
-    width: 262px;
-    height: auto;
-}
-.komager {
-    left: 360px;
-    top: 461px;
-}
-.komager.moved {
-    -webkit-transform: translate(830px,0px);
-    -moz-transform: translate(830px,0px);
-    transform: translate(830px,0px);   
-}
-.komager img {
-    width: 415px;
-    height: auto;
-}
-.lille-katekismen {
-    left: 787px;
-    top: 465px;
-}
-.lille-katekismen.moved {
-    -webkit-transform: translate(500px,80px);
-    -moz-transform: translate(500px,80px);
-    transform: translate(500px,80px);   
-}
-.lille-katekismen img {
-    width: 318px;
-    height: auto;
-}
-.benkekarde {
-    left: 1156px;
-    top: 396px;
-}
-.benkekarde.moved {
-    -webkit-transform: translate(80px,80px);
-    -moz-transform: translate(80px,80px);
-    transform: translate(80px,80px);   
-}
-.benkekarde img {
-    width: 366px;
-    height: auto;
-}
-.tobakkspung {
-    left: 1567px;
-    top: 367px;
-}
-.tobakkspung.moved {
-    -webkit-transform: translate(-330px,100px);
-    -moz-transform: translate(-330px,100px);
-    transform: translate(-330px,100px);   
-}
-.tobakkspung img {
-    width: 294px;
-    height: auto;
-}
-.tjaere-kopp {
-    left: 131px;
-    top: 734px;
-}
-.tjaere-kopp.moved {
-    -webkit-transform: translate(1106px,-300px);
-    -moz-transform: translate(1106px,-300px);
-    transform: translate(1106px,-300px);   
-}
-.tjaere-kopp img {
-    width: 188px;
-    height: auto;
-}
-.bortre {
-    left: 480px;
-    top: 763px;
-}
-.bortre.moved {
-    -webkit-transform: translate(640px,-200px);
-    -moz-transform: translate(640px,-200px);
-    transform: translate(640px,-200px);   
-}
-.bortre img {
-    width: 510px;
-    height: auto;
-}
-.lagga-beholder {
-    left: 1140px;
-    top: 714px;
-}
-.lagga-beholder.moved {
-    -webkit-transform: translate(100px,-250px);
-    -moz-transform: translate(100px,-250px);
-    transform: translate(100px,-250px);   
-}
-.lagga-beholder img {
-    width: 238px;
-    height: auto;
-}
-.det-nye-testamentet {
-    left: 1521px;
-    top: 761px;
-}
-.det-nye-testamentet.moved {
-    -webkit-transform: translate(-230px,-180px);
-    -moz-transform: translate(-230px,-180px);
-    transform: translate(-230px,-180px);   
-}
-.det-nye-testamentet img {
-    width: 340px;
+.sennatraad img {
+    width: 618px;
     height: auto;
 }
 
@@ -353,10 +251,13 @@ section {
     transition: .5s -webkit-filter linear;
 }
 .scaled {
-    -webkit-transform: scale(2.2);
+    -webkit-transform: scale(1.7);
 }
-.bortre img.scaled {
-    -webkit-transform: scale(1.9);
+.skaller img.scaled {
+    -webkit-transform: scale(1.5);
+}
+.sennatraad img.scaled {
+    -webkit-transform: scale(1.5);
 }
 .info {
     background: url(../images/panel.png) no-repeat;
@@ -376,10 +277,10 @@ section {
 }
 .object-text {
     position: absolute;
-    top: 200px;
+    top: 300px;
     left: 70px;
     width: 800px;
-    height: 680px;
+    height: 580px;
     padding: 10px;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -427,13 +328,6 @@ section {
     left: 40px;
     bottom: 20px;
     position: absolute;
-/*
-    left: -100px;
-    -webkit-animation: slide 0.5s forwards;
-    -webkit-animation-delay: 2s;
-    animation: slide 0.5s forwards;
-    animation-delay: 2s;
-*/
 }
 /* Bildepanel */
 .historical-image {

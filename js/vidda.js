@@ -4,13 +4,13 @@ $(document).ready(function(){
         e.preventDefault();
     });
     
-    var itemImages = $( '.sveipa-beholder, .komagerband, .grindvev, .boks, .finsk-bibel, .komager, .lille-katekismen, .benkekarde, .tobakkspung, .tjaere-kopp, .bortre, .lagga-beholder, .det-nye-testamentet' );
+    var itemImages = $( '.dall, .skaller, .votter, .grene, .sennatraad' );
     
     var languages = $( '.lang-no, .lang-en, .lang-sa, .lang-kv' );
     
     var languageButtons = $( '#lang-no, #lang-en, #lang-sa, #lang-kv' );
     
-    var objectTexts = $( '.sveipa-beholder-text, .komagerband-text, .grindvev-text, .boks-text, .finsk-bibel-text, .komager-text, .lille-katekismen-text, .benkekarde-text, .tobakkspung-text, .tjaere-kopp-text, .bortre-text, .lagga-beholder-text, .det-nye-testamentet-text' );    
+    var objectTexts = $( '.dall-text, .skaller-text, .votter-text, .grene-text, .sennatraad-text' );    
     
     //Vis og skjul språk  
 
