@@ -104,9 +104,9 @@ $(document).ready(function(){
               function(event) {
                 $(this).css("z-index", "");
                 });
-        $('.close').fadeOut('fast');
-        $('.big-image').fadeOut('fast');
-        $('.small-image').fadeOut('fast');
+        $('.close').fadeOut('slow');
+        $('.big-image').fadeOut('slow');
+        $('.small-image').fadeOut('slow');
         $('.historical-image').removeClass('slide-in');
         $('.info').removeClass("slide-in");
         $('#items').removeClass("blue-bg");
