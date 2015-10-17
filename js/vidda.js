@@ -77,6 +77,7 @@ $(document).ready(function(){
    
     itemImages.click(function() {
         if ($(this).hasClass('blur')) {
+          reset();
           return;
         }
         if ($(this).hasClass('moved')) {
